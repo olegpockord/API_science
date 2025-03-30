@@ -17,6 +17,14 @@
         <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
     </form>
 
+    {% for info in information%}
+    <p> Authors - {{ info.authors}}</p>
+    <p>Name - {{ info.name }}</p>
+    <p>anno - {{info.annotation}}</p>
+
+    {% endfor %}
+
+
     <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
 </body>

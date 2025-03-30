@@ -3,7 +3,7 @@ from django.db import models
 
 class TypesOfWork(models.Model):
 
-    name = models.CharField(unique=True, blank=False, null=False, verbose_name='Имя категории')
+    name = models.CharField(unique=True, blank=False, null=False, verbose_name='Тип публикации')
 
 
     class Meta():
@@ -13,7 +13,7 @@ class TypesOfWork(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 
 

@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from API.views import home
+from API.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home"),
+    path('', index, name="home"),
 ]

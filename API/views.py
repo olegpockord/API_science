@@ -1,5 +1,16 @@
 from django.shortcuts import render
 
-def home(request):
-    print("worked")
-    return render(request, "index.html")
+from API.models import IntelForScienceWorks
+
+
+
+def index(request):
+
+    information = IntelForScienceWorks.objects.all()
+
+    context = {
+        'information':  information,
+    }
+
+
+    return render(request, "index.html", context)
