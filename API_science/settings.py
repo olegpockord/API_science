@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-q-@60q!)n5uj2(_npz3xb@c7q7lza$_!nm^_ck_==*k4%3k@o#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.25.192.1', '178.155.114.117']
+# ALLOWED_HOSTS = ['172.25.192.1', '178.155.114.117']
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 # # Application definition
 
 INSTALLED_APPS = [
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'API_science.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'elibrary',
+        'NAME': 'Elibrary',
         'USER': 'Science',
         'PASSWORD': 'root',
         'HOST': 'localhost',
