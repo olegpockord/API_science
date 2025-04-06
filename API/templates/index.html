@@ -9,20 +9,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "bootstrap/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Мое Django-приложение</title>
 </head>
 <body>
-    <h1>Hello thats Django</h1>
     <form class="d-flex" role="search" action="" method="get">
         <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
     </form>
 
-    {% comment %} {% for info in information%}
-    <p> Authors - {{ info.authors}}</p>
-    <p>Name - {{ info.name }}</p>
-    <p>anno - {{info.annotation}}</p>
+    <div class="container">
+        <h1 class="text-center mb-4">Список научных работ</h1>
+    
+        <div class="row">
+            {% for info in  information %}
+            {% for author in  authors %}
+            {% for type in  TypesOfWork %}
 
-    {% endfor %} {% endcomment %}
+            {% if  info.id == author.id and info.id == type.id and type.id == author.id%}
+
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        {{author.full_author_name}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{info.title}}</h5>
+                        <p class="card-text"><b>Аннотация</b>: {{info.annotation}}</p>
+                        <p><i class="fas fa-book icon"></i><strong>Тип работы:</strong> {{type.type}}</p>
+                        <p><i class="fas fa-calendar icon"></i><strong>Год публикации:</strong>{{info.year_publication}}</p>
+                        <p><i class="fas fa-cogs icon"></i><strong>OECD:</strong> {{info.OECD}}</p>
+                        <div class="keywords">
+                            <strong>Ключевые слова:</strong>
+                            <span>{{info.key_words}}</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <strong><i class="fas fa-users icon"></i> Соавторы:</strong>{{author.other_authors}}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% endfor %}
+            {% endfor %}
+            {% endfor %}
+
+        </div>
+    
+    </div>
 
 
     <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
