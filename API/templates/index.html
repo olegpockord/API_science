@@ -12,25 +12,28 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Мое Django-приложение</title>
 </head>
+
 <body>
-    <form class="d-flex" role="search" action="" method="get">
+    <form class="d-flex" role="search" action="{% url "main:search" %}" method="get">
         <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success text-grey" type="submit">Поиск</button>
     </form>
 
+    {% if request.GET.q %}
     <div class="container">
-        <h1 class="text-center mb-4">Список научных работ</h1>
+        <h1 class="text-center mb-3">Выполнен поиск по: {{request.GET.q}}</h1>
+    {% else %}
+    <div class="container">
+        <h1 class="text-center mb-4">Полный список научных работ</h1>
+    {% endif %}
+
     
         <div class="row">
             {% for info in  information %}
-            {% for author in  authors %}
-            {% for type in  TypesOfWork %}
-
-            {% if  info.id == author.id and info.id == type.id and type.id == author.id%}
-
             <div class="col-lg-6 col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        {{author.full_author_name}}
+                        {{info.author.full_author_name}}
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{info.title}}</h5>
@@ -39,25 +42,24 @@
                         <p><i class="fas fa-calendar icon"></i><strong>Год публикации:</strong>{{info.year_publication}}</p>
                         <p><i class="fas fa-cogs icon"></i><strong>OECD:</strong> {{info.OECD}}</p>
                         <div class="keywords">
+                            {% if info.key_words %}
                             <strong>Ключевые слова:</strong>
                             <span>{{info.key_words}}</span>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="card-footer">
-                        <strong><i class="fas fa-users icon"></i> Соавторы:</strong>{{author.other_authors}}
+                        {% if info.author.other_authors %}
+                        <strong><i class="fas fa-users icon"></i> Соавторы:</strong>{{info.author.other_authors}}
+                        {% endif %}
                     </div>
                 </div>
             </div>
-            {% endif %}
 
-            {% endfor %}
-            {% endfor %}
             {% endfor %}
 
         </div>
-    
     </div>
-
 
     <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>

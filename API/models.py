@@ -31,10 +31,10 @@ class AuthorNames(models.Model):
 
     def full_author_name(self):
         if self.author_middle_name:
-            return f"{self.author_last_name}., {self.author_name}., {self.author_middle_name}."
+            return f"{self.author_last_name}. {self.author_name}., {self.author_middle_name}."
         return f"{self.author_last_name}. {self.author_name}."
     
-# Create your models here.
+
 class IntelForScienceWorks(models.Model):
 
     title = models.CharField(max_length=250, null=False, verbose_name='Название')
@@ -55,5 +55,4 @@ class IntelForScienceWorks(models.Model):
 
     def __str__(self):
         return f"{self.pk} - {self.title}"
-    
     

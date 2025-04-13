@@ -1,22 +1,28 @@
 from django.shortcuts import render
 
-from API.models import AuthorNames, IntelForScienceWorks, TypesOfWork
+from API.models import IntelForScienceWorks
+from API.utils import q_search
 
 
+
+def word_search(request):
+    query = request.GET.get('q')
+
+    worksquery = q_search(query)
+    
+    context = {
+        'information':  worksquery,
+    }
+
+    return render(request, "index.html", context)
 
 def index(request):
 
     information = IntelForScienceWorks.objects.all()
-    authors = AuthorNames.objects.all()
-    types = TypesOfWork.objects.all()
-
 
     context = {
         'information':  information,
-        'authors': authors,
-        'TypesOfWork': types,
     }
 
-
-
     return render(request, "index.html", context)
+
