@@ -19,6 +19,11 @@
         <button class="btn btn-outline-success text-grey" type="submit">Поиск</button>
     </form>
 
+    {% if not information and request.GET.q %}
+    <div class="container">
+        <h1 class="text-center mb-3">Ничего не найдено, попробуйте другой запрос</h1>
+    {% endif %}
+
     {% if request.GET.q %}
     <div class="container">
         <h1 class="text-center mb-3">Выполнен поиск по: {{request.GET.q}}</h1>
@@ -33,12 +38,12 @@
             <div class="col-lg-6 col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        {{info.author.full_author_name}}
+                        {{info.authors.full_author_name}}
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{info.title}}</h5>
                         <p class="card-text"><b>Аннотация</b>: {{info.annotation}}</p>
-                        <p><i class="fas fa-book icon"></i><strong>Тип работы:</strong> {{type.type}}</p>
+                        <p><i class="fas fa-book icon"></i><strong>Тип работы:</strong> {{info.type_of_work.type}}</p>
                         <p><i class="fas fa-calendar icon"></i><strong>Год публикации:</strong>{{info.year_publication}}</p>
                         <p><i class="fas fa-cogs icon"></i><strong>OECD:</strong> {{info.OECD}}</p>
                         <div class="keywords">
@@ -49,8 +54,8 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        {% if info.author.other_authors %}
-                        <strong><i class="fas fa-users icon"></i> Соавторы:</strong>{{info.author.other_authors}}
+                        {% if info.authors.other_authors %}
+                        <strong><i class="fas fa-users icon"></i> Соавторы:</strong>{{info.authors.other_authors}}
                         {% endif %}
                     </div>
                 </div>

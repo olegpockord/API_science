@@ -1,0 +1,1 @@
+[{"model": "API.typesofwork", "pk": 1, "fields": {"type": "Статьи в журналах"}}, {"model": "API.typesofwork", "pk": 2, "fields": {"type": "Материалы конференций"}}, {"model": "API.typesofwork", "pk": 3, "fields": {"type": "Книги"}}, {"model": "API.typesofwork", "pk": 4, "fields": {"type": "Диссертация"}}]

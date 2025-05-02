@@ -7,9 +7,15 @@ from API.utils import q_search
 
 def word_search(request):
     query = request.GET.get('q')
+    
+    if not query:
+        return index(request)
 
     worksquery = q_search(query)
-    
+
+    if len(worksquery) == 0:
+        ...
+
     context = {
         'information':  worksquery,
     }

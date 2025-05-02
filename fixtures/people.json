@@ -1,0 +1,302 @@
+[
+    {
+        "model": "API.authornames",
+        "pk": 1,
+        "fields": {
+            "author_name": "И",
+            "author_last_name": "КОРАБЛЁВ",
+            "author_middle_name": "Е",
+            "other_authors": "Шарипов Ильнар Ильдарович"
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 2,
+        "fields": {
+            "author_name": "Евгений",
+            "author_last_name": "Ремшев",
+            "author_middle_name": "Юрьевич",
+            "other_authors": "ПАВЛОВ А.С., Храмова Дария Алексеевна, Митчин Николай Александрович"
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 3,
+        "fields": {
+            "author_name": "Владимир",
+            "author_last_name": "Попов",
+            "author_middle_name": "Андреевич",
+            "other_authors": "Касатов Александр Александрович"
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 4,
+        "fields": {
+            "author_name": "Т",
+            "author_last_name": "МАЛАФЕЕВСКИЙ",
+            "author_middle_name": "А",
+            "other_authors": "СЕМЕНОВ В.П."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 5,
+        "fields": {
+            "author_name": "Алексей",
+            "author_last_name": "Подъячев",
+            "author_middle_name": "Александрович",
+            "other_authors": "БУКИН П.Н., СЮРАЕВА К.В."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 6,
+        "fields": {
+            "author_name": "Фидан",
+            "author_last_name": "Хабиров",
+            "author_middle_name": "Фазитович",
+            "other_authors": "ВОХМИН В.С., АКЧУРИН С.В."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 7,
+        "fields": {
+            "author_name": "О",
+            "author_last_name": "Андреева",
+            "author_middle_name": "С",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 8,
+        "fields": {
+            "author_name": "А",
+            "author_last_name": "Ломакин",
+            "author_middle_name": null,
+            "other_authors": "ФЕДОРОВА А.А., КОРАБЛЕВ О.И., МОНТМЕССАН Ф.3, ВОРОНИН Б.А."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 9,
+        "fields": {
+            "author_name": "Евгений",
+            "author_last_name": "Страшнов",
+            "author_middle_name": "Владимирович",
+            "other_authors": "МИХАЙЛЮК М.В."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 10,
+        "fields": {
+            "author_name": "Евгений",
+            "author_last_name": "Толубеев",
+            "author_middle_name": "Александрович",
+            "other_authors": "ПАВЛЕНКО Т.Г."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 11,
+        "fields": {
+            "author_name": "Анатолий",
+            "author_last_name": "Гаврик",
+            "author_middle_name": "Леонидович",
+            "other_authors": "Гаврик Юрий Анатольевич, Самознаев Лев Николаевич"
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 12,
+        "fields": {
+            "author_name": "Николай",
+            "author_last_name": "Игнатьев",
+            "author_middle_name": "Игоревич",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 13,
+        "fields": {
+            "author_name": "Владимир",
+            "author_last_name": "Губенко",
+            "author_middle_name": "Николаевич",
+            "other_authors": "КИРИЛЛОВИЧ И.А."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 14,
+        "fields": {
+            "author_name": "Лев",
+            "author_last_name": "Зеленый",
+            "author_middle_name": "Матвеевич",
+            "other_authors": "КОРАБЛЁВ О.И., ЗАСОВА Л.В., СТРЕЛЬНИКОВ Д.В., ИГНАТЬЕВ Н.И., ГЕРАСИМОВ М.В., ЭЙСМОНТ Н.А., ИВАНОВ М.А., ГОРИНОВ Д.А."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 15,
+        "fields": {
+            "author_name": "Ю",
+            "author_last_name": "Поттосин",
+            "author_middle_name": "В",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 16,
+        "fields": {
+            "author_name": "В",
+            "author_last_name": "ЧЕРВОНЮК",
+            "author_middle_name": "В",
+            "other_authors": "ГАЙДАЙ М.С., ДОБРОДЕЕВ А.В., МУХАММЕДОВ Н.А."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 17,
+        "fields": {
+            "author_name": "Евгений",
+            "author_last_name": "Постников",
+            "author_middle_name": "Борисович",
+            "other_authors": "Лоскутов Александр Юрьевич"
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 18,
+        "fields": {
+            "author_name": "Дмитрий",
+            "author_last_name": "Байдаков",
+            "author_middle_name": "Иванович",
+            "other_authors": "Жеребятьев Валентин Иванович, Мирмович Эдуард Григорьевич"
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 19,
+        "fields": {
+            "author_name": "Тамара",
+            "author_last_name": "Киселева",
+            "author_middle_name": "Петровна",
+            "other_authors": "Васильева Татьяна Алексеевна, Измайлов Игорь Саматович, РОЩИНА Е.А."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 20,
+        "fields": {
+            "author_name": "Владимир",
+            "author_last_name": "Судаков",
+            "author_middle_name": "Сергеевич",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 21,
+        "fields": {
+            "author_name": "В",
+            "author_last_name": "Коренков",
+            "author_middle_name": "В",
+            "other_authors": "СЕЛИВАНОВ В.В., СЕРГЕЕВА А.И., СЕРГИЕНКО С.В."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 22,
+        "fields": {
+            "author_name": "Елена",
+            "author_last_name": "Беленькая",
+            "author_middle_name": "Семенова",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 23,
+        "fields": {
+            "author_name": "Наталья",
+            "author_last_name": "Малинина",
+            "author_middle_name": "Леонидовна",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 24,
+        "fields": {
+            "author_name": "Владимир",
+            "author_last_name": "Мокрый",
+            "author_middle_name": "Юрьевич",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 25,
+        "fields": {
+            "author_name": "К",
+            "author_last_name": "Жигульский",
+            "author_middle_name": "В",
+            "other_authors": "КРАВЕЦ О.Я., СОЛЯНИК А.И."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 26,
+        "fields": {
+            "author_name": "С",
+            "author_last_name": "Нестеренко",
+            "author_middle_name": "В",
+            "other_authors": "ПАВЛОВ Д.А."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 27,
+        "fields": {
+            "author_name": "Леонид",
+            "author_last_name": "Чудновский",
+            "author_middle_name": "Семенович",
+            "other_authors": "МОЗГОВ К.С., ПАНОВ С.А."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 28,
+        "fields": {
+            "author_name": "О",
+            "author_last_name": "Барановский",
+            "author_middle_name": "К",
+            "other_authors": "КУЧИНСКИЙ П.В., ЛУТКОВСКИЙ В.М., ПЕТРУНИН А.П., САВЕНОК Е.Д."
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 29,
+        "fields": {
+            "author_name": "Рудольф",
+            "author_last_name": "Браже",
+            "author_middle_name": "Александрович",
+            "other_authors": ""
+        }
+    },
+    {
+        "model": "API.authornames",
+        "pk": 30,
+        "fields": {
+            "author_name": "Алексей",
+            "author_last_name": "Смирнов",
+            "author_middle_name": "Леонидович",
+            "other_authors": "РЫЧКОВ В.Н., УМАНСКИЙ А.Б., ГАЛЯНИНА Е.А., КЛЮШНИКОВ А.М."
+        }
+    }
+]
