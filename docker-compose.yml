@@ -1,0 +1,51 @@
+volumes:
+  pgdata:
+  static:
+
+
+services:
+
+  django:
+    build:
+      context: .
+    ports:
+      - '8000:8000'
+    container_name: django
+    env_file:
+      - docker/env/.env.dev
+    volumes:
+      - ./:/API_science
+      - static:/API_science/static
+    depends_on:
+      - postgres
+    command: sh -c "python manage.py makemigrations &&
+                    python manage.py migrate &&
+                    python manage.py loaddata fixtures/people.json &&
+                    python manage.py loaddata fixtures/types.json &&
+                    python manage.py loaddata fixtures/AllUnion.json &&
+                    python manage.py runserver 0.0.0.0:8000"
+
+  nginx:
+    container_name: nginxTest
+    working_dir: /API_science
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - static:/API_science/static
+      - ./docker/nginx/:/etc/nginx/conf.d:ro
+    links:
+      - django
+    depends_on:
+      - django
+
+  postgres:
+    image: postgres:alpine
+    container_name: postgresTest
+    restart: always
+    env_file:
+      - docker/env/.env.dev
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+  
