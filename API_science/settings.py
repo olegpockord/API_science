@@ -15,7 +15,7 @@ import environ
 
 env = environ.Env()
 
-environ.Env.read_env(env_file=Path('./docker/env/.env.dev'))
+environ.Env.read_env(env_file=Path('./docker/env/.env.prod'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': env('POSTGRES_DB'),
         'USER': env('POSTGRES_USER'),
         'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': 'postgres',
+        'HOST': env('POSTGRES_HOST'),
         'PORT': env('POSTGRES_PORT'),
     }
 }

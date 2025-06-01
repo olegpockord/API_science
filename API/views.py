@@ -13,9 +13,6 @@ def word_search(request):
 
     worksquery = q_search(query)
 
-    if len(worksquery) == 0:
-        ...
-
     context = {
         'information':  worksquery,
     }
