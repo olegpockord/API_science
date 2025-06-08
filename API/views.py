@@ -7,7 +7,11 @@ from API.utils import q_search
 
 def word_search(request):
     query = request.GET.get('q')
-    
+
+    if len(query.split()) > 1:
+        context = {'information': None}
+        return render(request, "index.html", context)
+
     if not query:
         return index(request)
 
@@ -28,4 +32,3 @@ def index(request):
     }
 
     return render(request, "index.html", context)
-

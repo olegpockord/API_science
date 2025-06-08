@@ -3,3 +3,6 @@
 venv/
 .pylintrc
 __pycache__/
+.fixtures
+
+/docker/env/.env*

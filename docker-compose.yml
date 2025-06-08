@@ -8,6 +8,7 @@ services:
   django:
     build:
       context: .
+      network: host
     ports:
       - '8000:8000'
     container_name: django
@@ -23,7 +24,7 @@ services:
                     python manage.py loaddata fixtures/people.json &&
                     python manage.py loaddata fixtures/types.json &&
                     python manage.py loaddata fixtures/AllUnion.json &&
-                    gunicorn --workers=4 --reload --max-requests=1000 backend.wsgi -b 0.0.0.0:8000"
+                    gunicorn --workers=4 --reload --max-requests=1000 API_science.wsgi -b 0.0.0.0:8000"
 
   nginx:
     container_name: nginxTest
@@ -59,7 +60,6 @@ services:
       volumes:
           - ./docker/certbot/conf:/etc/letsencrypt:rw
           - ./docker/certbot/www:/var/www/certbot:rw
-      command: certonly --webroot --webroot-path=/var/www/certbot/ --email email@mail.com --agree-tos --no-eff-email -d example.com -d www.example.com
+#      command: certonly --webroot --webroot-path=/var/www/certbot/ --email oleg222200005555@gmail.com --agree-tos --no-eff-email -d fsciencecheck.ru -d www.fsciencecheck.ru && 2
       depends_on:
         - nginx
-  

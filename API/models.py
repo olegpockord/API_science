@@ -31,8 +31,8 @@ class AuthorNames(models.Model):
 
     def full_author_name(self):
         if self.author_middle_name:
-            return f"{self.author_last_name}. {self.author_name}., {self.author_middle_name}."
-        return f"{self.author_last_name}. {self.author_name}."
+            return f"{self.author_last_name.lower().capitalize()} {self.author_name[0]}., {self.author_middle_name[0]}."
+        return f"{self.author_last_name.lower().capitalize()} {self.author_name[0]}."
     
 
 class IntelForScienceWorks(models.Model):

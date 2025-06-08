@@ -4,6 +4,9 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 
 
+CMD ["--network","host"]
+
+
 RUN apk update && apk add libpq
 RUN apk add --virtual .build-deps gcc python3-dev musl-dev postgresql-dev
 
