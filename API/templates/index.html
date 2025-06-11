@@ -14,14 +14,68 @@
 </head>
 
 <body>
-    <form class="d-flex" role="search" action="{% url "main:search" %}" method="get">
-        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+    <form class="d-flex flex-column" role="search" action="{% url 'main:search' %}" method="get">
+    
+    <div class="d-flex mb-2">
+        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" {% if request.GET.q %}value="{{ request.GET.q }}{% endif %} ">
         <button class="btn btn-outline-success text-grey" type="submit">Поиск</button>
-    </form>
+    </div>
+
+    
+    <div class="mb-3 mt-1">
+        <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sortMenu" aria-controls="sortMenu">
+            <i class="fas fa-sliders-h icon"></i>Сортировка
+        </button>
+        
+    </div>
+
+    
+    <div class="offcanvas offcanvas-end custom-height" tabindex="1" id="sortMenu" aria-labelledby="sortMenuLabel">
+        <div class="offcanvas-header">
+            <h5 id="sortMenuLabel">Параметры сортировки</h5>
+            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="order_by" value="id" id="chkDef"=
+                       {% if not request.GET.order_by or request.GET.order_by == 'id'%}checked{% endif %}>
+                <label class="form-check-label" for="chkDef">По умолчанию</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="order_by" value="title" id="chkTitle"
+                       {% if request.GET.order_by == 'title' %}checked{% endif %}>
+                <label class="form-check-label" for="chkTitle">Название работы</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="order_by" value="annotation" id="chkAnnotation"
+                       {% if request.GET.order_by == 'annotation' %}checked{% endif %}>
+                <label class="form-check-label" for="chkAnnotation">Аннотация</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="order_by" value="year_publication" id="chkYear"
+                       {% if request.GET.order_by == 'year_publication' %}checked{% endif %}>
+                <label class="form-check-label" for="chkYear">Год публикации</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="order_by" value="OECD" id="chkOECD"
+                       {% if request.GET.order_by == 'OECD' %}checked{% endif %}>
+                <label class="form-check-label" for="chkOECD">OECD</label>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="radio" name="order_by" value="key_words" id="chkKeywords"
+                       {% if request.GET.order_by == 'key_words' %}checked{% endif %}>
+                <label class="form-check-label" for="chkKeywords">Ключевые слова</label>
+            </div>
+        </div>
+    </div>
+</form>
+
+
 
     {% if not information and request.GET.q %}
     <div class="container">
-        <h1 class="text-center mb-3">Ничего не найдено, попробуйте другой запрос</h1>
+        <h1 class="text-center mb-3 ">Ничего не найдено, попробуйте другой запрос</h1>
 
     {% elif request.GET.q %}
     <div class="container">
@@ -41,7 +95,9 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{info.title}}</h5>
+                        {% if info.annotation %}
                         <p class="card-text"><b>Аннотация</b>: {{info.annotation}}</p>
+                        {% endif %}
                         <p><i class="fas fa-book icon"></i><strong>Тип работы:</strong> {{info.type_of_work.type}}</p>
                         <p><i class="fas fa-calendar icon"></i><strong>Год публикации:</strong>{{info.year_publication}}</p>
                         <p><i class="fas fa-cogs icon"></i><strong>OECD:</strong> {{info.OECD}}</p>

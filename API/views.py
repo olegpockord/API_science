@@ -7,15 +7,15 @@ from API.utils import q_search
 
 def word_search(request):
     query = request.GET.get('q')
-
-    if len(query.split()) > 1:
-        context = {'information': None}
-        return render(request, "index.html", context)
-
+    order_by = request.GET.get('order_by')
+    
     if not query:
         return index(request)
 
     worksquery = q_search(query)
+
+    if order_by and order_by != "default":
+        worksquery = worksquery.order_by(order_by)
 
     context = {
         'information':  worksquery,

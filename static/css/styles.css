@@ -76,3 +76,12 @@ body {
         font-size: 1rem;
     }
 }
+
+.offcanvas.custom-height {
+    height: auto;
+    max-height: none;
+    top: auto;
+    bottom: auto;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
