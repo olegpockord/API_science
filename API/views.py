@@ -25,7 +25,12 @@ def word_search(request):
 
 def index(request):
 
+    order_by = request.GET.get('order_by')
+
     information = IntelForScienceWorks.objects.all()
+
+    if order_by and order_by != "default":
+        information = information.order_by(order_by)
 
     context = {
         'information':  information,

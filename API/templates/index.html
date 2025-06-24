@@ -85,7 +85,7 @@
         <h1 class="text-center mb-4">Полный список научных работ</h1>
     {% endif %}
 
-
+        
         <div class="row">
             {% for info in  information %}
             <div class="col-lg-6 col-md-12">
@@ -94,9 +94,15 @@
                         {{info.authors.full_author_name}}
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{info.title}}</h5>
+                        {% autoescape off %}
+                        <h5 class="card-title">
+                            {% if info.headline %} {{info.headline }}
+                            {% else %} {{info.title}}
+                            {% endif %}
+                        </h5>
+                        {% endautoescape %}
                         {% if info.annotation %}
-                        <p class="card-text"><b>Аннотация</b>: {{info.annotation}}</p>
+                        <p class="card-text"><b>Аннотация</b>:{{info.annotation}}</p>
                         {% endif %}
                         <p><i class="fas fa-book icon"></i><strong>Тип работы:</strong> {{info.type_of_work.type}}</p>
                         <p><i class="fas fa-calendar icon"></i><strong>Год публикации:</strong>{{info.year_publication}}</p>
@@ -117,7 +123,7 @@
             </div>
 
             {% endfor %}
-
+            
         </div>
     </div>
 
