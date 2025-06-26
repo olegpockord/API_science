@@ -23,11 +23,11 @@ class AuthorNames(models.Model):
 
     class Meta():
         db_table = 'AuthorNames'
-        verbose_name = 'Автора'
+        verbose_name = 'Автор'
         verbose_name_plural = 'Имена всех авторов'
 
     def __str__(self):
-        return f"{self.pk} - {self.author_name}"
+        return f"{self.pk} - {self.author_last_name}"
 
     def full_author_name(self):
         if self.author_middle_name:
