@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'API_science.urls'
@@ -89,6 +90,13 @@ DATABASES = {
         'PASSWORD': env('POSTGRES_PASSWORD'),
         'HOST': env('POSTGRES_HOST'),
         'PORT': env('POSTGRES_PORT'),
+    }
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": env('REDIS_LOCATION'),
     }
 }
 

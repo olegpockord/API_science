@@ -6,6 +6,6 @@ app_name = 'API'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="home"),
-    path('search/', views.word_search, name="search")
+    path('', views.IndexView.as_view(), name="home"),
+    path('search/', views.SearchView.as_view(), name="search")
 ]
