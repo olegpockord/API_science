@@ -15,21 +15,6 @@ Code bellow in that conditions can run in 2 situations:
 
 For run in Localhost you need install Python version 3.10 +
 
-After this you should create in folder python venv
-
-```
-
-python -m venv venv
-
-```
-
-After creating venv you need activate venv and download requirements.txt
-
-```
-
-pip install -r requirements.txt
-
-```
 
 So after that starts the Django activation. You could find it in the internet if you don't now how to deal with.
 
@@ -50,13 +35,45 @@ POSTGRES_PORT=5432
 ```
 And if you dont't know russian swap language in settings.
 
-After that you can create run file for django and enjoy application. If you want to add some works, create a superuser.
+For local run you should comment certbot container in compose file
+
+```
+#  certbot:
+#      image: certbot/certbot
+#     container_name: certbot
+#      volumes:
+#          - ./docker/certbot/conf:/etc/letsencrypt:rw
+#          - ./docker/certbot/www:/var/www/certbot:rw
+#      command: certonly --webroot --webroot-path=/var/www/certbot/ --email <your email> --agree-tos --no-eff-email -d <domain name> -d www.<domain name> && 2 <uncomment for reaching certificate>
+#      depends_on:
+#        - nginx
+```
+And also litte rewrtire nginx container
+
+```
+  nginx:
+    container_name: nginx
+    working_dir: /API_science
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - static:/app/static
+      - ./docker/nginx/dev/:/etc/nginx/conf.d:ro
+    links:
+      - django
+    depends_on:
+      - django
+```
+And also change in django container .prod to .dev and change line ````` gunicorn --workers=4 --reload --max-requests=1000 API_science.wsgi -b 0.0.0.0:8000" ```` to ````python manage.py runserver 0.0.0.0:8000" ````
+
+After that you can create container for app and run it and enjoy application. If you want to add some works, create a superuser.
 
 # How to use production version
 
-Firstly you should make venv and load requirements.txt and create env.prod.file with your settings
 
-After creating venv make nginx file in: /docker/nginx/django.conf
+Rewrite nginx file in: /docker/nginx/django.conf
 With  code in:
 ```
 upstream django {
