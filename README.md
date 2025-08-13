@@ -66,7 +66,7 @@ And also litte rewrtire nginx container
     depends_on:
       - django
 ```
-And also change in django container .prod to .dev and change line ````` gunicorn --workers=4 --reload --max-requests=1000 API_science.wsgi -b 0.0.0.0:8000" ```` to ````python manage.py runserver 0.0.0.0:8000" ````
+And also change in django container .prod to .dev and change line ```` gunicorn --workers=4 --reload --max-requests=1000 API_science.wsgi -b 0.0.0.0:8000" ```` to ````python manage.py runserver 0.0.0.0:8000" ````
 
 After that you can create container for app and run it and enjoy application. If you want to add some works, create a superuser.
 
